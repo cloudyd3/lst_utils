@@ -15,7 +15,6 @@ def parse_disputes(source_key, source_tab, destination_key, destination_tab, **k
     """Parses LST disputes from a Google spreadsheet."""
     credentials = kwargs.get("credentials", None)
     index = kwargs.get("index", None)
-    print("Parsing disputes from {}:{} to {}:{}".format(source_key, source_tab, destination_key, destination_tab))
 
     if not credentials:
         gc = gspread.oauth(credentials_filename=os.path.join(CONF_DIR, "credentials.json"),
@@ -27,6 +26,8 @@ def parse_disputes(source_key, source_tab, destination_key, destination_tab, **k
 
     source_sheet = gc.open_by_key(source_key).worksheet(source_tab)
     destination_sheet = gc.open_by_key(destination_key).worksheet(destination_tab)
+    print("Parsing disputes from {}:{} to {}:{}".format(source_sheet.spreadsheet.title, source_tab,
+                                                        destination_sheet.spreadsheet.title, destination_tab))
     source_data = source_sheet.get_all_records()
     dispute_list = []
     x = PrettyTable()
