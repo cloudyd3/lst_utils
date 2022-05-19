@@ -5,11 +5,11 @@ Small and hopefully soon to be expanding suite of tools for LST and others.
 ## Installation
 
 ```bash
-git clone https://github.com/cloudyd3/lst-utils
-cd lst-utils
+git clone https://github.com/cloudyd3/lst_utils.git
+cd lst_utils
 pip install build
 python -m build
-pip install dist/lst_utils_cloudyd3-0.1.0-py3-none-any.whl
+pip install dist/lst_utils_cloudyd3-0.2.0-py3-none-any.whl
 ```
 
 ## Usage
@@ -42,4 +42,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[GNU GPLv3](https://choosealicense.com/licenses/mit/)
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)

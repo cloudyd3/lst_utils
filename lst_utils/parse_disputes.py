@@ -30,7 +30,7 @@ def parse_disputes(source_key, source_tab, destination_key, destination_tab, **k
     source_data = source_sheet.get_all_records()
     dispute_list = []
     x = PrettyTable()
-    x.field_names = ["Date", "Player Name", "Order", "Player Status", "Game", "Violation", "Punishment", "Comment"]
+    x.field_names = ["Date", "Player Name", "Order", "Player Status", "Game"]
     for i, row in enumerate(source_data):
         if index is not None:
             if i < int(index) - 2:
@@ -47,7 +47,7 @@ def parse_disputes(source_key, source_tab, destination_key, destination_tab, **k
         dispute.punishment = row["punishment"]
         dispute.comment = row["комментарий"]
         dispute_list.append(list(asdict(dispute).values()))
-        x.add_row(asdict(dispute).values())
+        x.add_row(list(asdict(dispute).values())[:5])
     destination_sheet.update('A{}'.format(len(destination_sheet.col_values(1)) + 1),
                              dispute_list, value_input_option=ValueInputOption.user_entered)
     print(x)
